@@ -1,11 +1,8 @@
-import { Sequelize } from "sequelize";
+import Product from "../models/Product.model";
+import { Sequelize } from "sequelize-typescript";
 import dotenv from 'dotenv' //importa la extension
 dotenv.config()// manda a llamar las variables de entorno, incluyendo las del archivo
 const db=new Sequelize(process.env.DATABASE_URL!,{ //garantiza que el valor estara alli
-    dialectOptions:{
-        ssl:{
-            require:false
-        }
-    }
+    models:[__dirname + '/../models/**/*.ts'],//Retorna la ubicación del archivo que lo manda a llamar
 })
 export default db

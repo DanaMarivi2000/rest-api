@@ -1,0 +1,2 @@
+Middleware: Se refiere a un tipo de software intermedio que se utiliza para procesar las solicitudes http que llegan a una aplicación web antes de ser manejadas por la función de enrutamiento principal
+Los middleware son funciones que se ejecutan en el medio flujo de solicitud y respuesta de una aplicación web y pueden realizar diversas tares como autenticación, validación de datos, registro de solicitudes, compresi´n de respuestas, entre otras.
