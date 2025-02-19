@@ -1,2 +1,17 @@
 Middleware: Se refiere a un tipo de software intermedio que se utiliza para procesar las solicitudes http que llegan a una aplicación web antes de ser manejadas por la función de enrutamiento principal
 Los middleware son funciones que se ejecutan en el medio flujo de solicitud y respuesta de una aplicación web y pueden realizar diversas tares como autenticación, validación de datos, registro de solicitudes, compresi´n de respuestas, entre otras.
+Diferencias entre PUT y PATCH
+
+PUT: Reemplaza el elemento con lo que le envíes, conserva el valor que modificas, elimina los demás
+PATCH: Solo cambia el valor que deseas, reemplaza únicamente con lo que le estás enviando
+manteniendo demás valores sin modificar ni eliminar
+
+PUT: se utiliza para actualizar o reemplazar completamente un recurso existente en un servidor web
+Cuando haces una solicitud PUT, estás diciendo al servidor que tome la información proporcionada y la utilice para reemplazar completamente el recurso en la ubicación especificada
+Por ejemplo, si tienes un objeto JSON que representa un producto y haces una solicitud PUT al servidor con ese objeto, el servidor reemplazara completamente los datos del producto existente con los datos proporcionados en la solicitud PUT
+
+Patch se utiliza para realizar modificaciones parciales en un recurso existente en un servidor web
+En lugar de reemplazar completamente el producto como lo hace PUT, PATCH permite realizar cambios especificos en los datos del recurso sin afectar el resto de la información 
+Po ejemplo si tienes un objeto json que representa un producto y haces una solicitud patch al servidor con una pqueña parte delos satos actualizados (por ejemplo, cambiar solo la disponibilidad), el ervidor aplicará eos cambio sin afectar otro detalles del producto
+
+PUT ACTUALIZA COMPLETAMENTE PATCH MODIFICA PARTES DE UN recurso

@@ -1,7 +1,8 @@
 import { Router } from "express";
 import {body, param} from 'express-validator'
-import { getProducts, getProductById, createProduct } from "./handlers/product";
+import { getProducts, getProductById, createProduct, updateProduct, updateAvailability, deleteProduct } from "./handlers/product";
 import {handleInputErrors} from './middleware/index'
+import { IsInt, IsNumeric, NotEmpty } from "sequelize-typescript";
 const router=Router()
 
 
@@ -19,14 +20,21 @@ router.post("/",
     createProduct
 )
 
-// router.put("/",(_req,res)=>{
-//     res.json("Desde PUT")
-// })
-// router.patch("/",(_req, res)=>{
-//     res.json("desde patch")
-// })
-// router.delete("/",(_req,res)=>{
-//     res.json("desde delete")
-// })
+router.put("/:id",
+    param("id").isInt().withMessage("ID no válido"),  
+    body("name").notEmpty().withMessage("El nombre del producto no puede estar vacío"),
+    body("price").isNumeric().withMessage("Valor no válido").notEmpty().withMessage("El precio del producto no puede estar vacío").custom(value=>value>0).withMessage("Precio no válido"),
+    body("availability").isBoolean().withMessage("Valor para la disponibilidad noválido"),
+       handleInputErrors,  //Funciones intermedias que se ejecutan en cada request de tipo http
+    updateProduct
+)
+
+router.patch("/:id",
+    param("id").isInt().withMessage("ID no válido"),  
+    handleInputErrors,
+    updateAvailability
+)
+
+router.delete("/:id",deleteProduct)
 
 export default router
