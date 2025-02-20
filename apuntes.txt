@@ -15,3 +15,11 @@ En lugar de reemplazar completamente el producto como lo hace PUT, PATCH permite
 Po ejemplo si tienes un objeto json que representa un producto y haces una solicitud patch al servidor con una pqueña parte delos satos actualizados (por ejemplo, cambiar solo la disponibilidad), el ervidor aplicará eos cambio sin afectar otro detalles del producto
 
 PUT ACTUALIZA COMPLETAMENTE PATCH MODIFICA PARTES DE UN recurso
+
+Tipo de testing en node js y api's
+
+Unit Testing: Verificar que partes individuales en nuestro código funcionen; tales como crear el servidor, visitar una ruta, debemos revisar que cada pieza funcione como esperamos antes de integrarla con otras
+Integration testing: Una vez que revisamos que algunas piezas de código funcionen por si solas, es momento de revisar cuando 2 o más se unen, tales como visitar una rutay obtener datos, o enviar una petición post, validar y entonces crear el producto
+Jest es un frameworks para aplicar testing
+Supertest jest nos da una serie de funciones para probar el código, pero con supertest podremos realizar peticiones hacia nuestra API y revisar que el código funcione como esperamos
+Con supertest podremos realizar pruebas de integración entre las url's de nuestra api y el orm
