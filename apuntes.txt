@@ -23,3 +23,7 @@ Integration testing: Una vez que revisamos que algunas piezas de código funcion
 Jest es un frameworks para aplicar testing
 Supertest jest nos da una serie de funciones para probar el código, pero con supertest podremos realizar peticiones hacia nuestra API y revisar que el código funcione como esperamos
 Con supertest podremos realizar pruebas de integración entre las url's de nuestra api y el orm
+
+Para limpiar base de datos
+    // "db":"ts-node ./src/data --clear"
+    "pretest":"ts-node ./src/data --clear" //Comando especial que se ejecuta antes de test

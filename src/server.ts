@@ -9,7 +9,7 @@ server.use(express.json()) //Permi leer el json //Puedes leer los datos del json
 async function connectDB(){
    try{
        await db.authenticate()
-       db.sync() //va agregando nuevos modelos o clumnas a la base de datos, sincronixa en automatico lo que tengamos en nuestros modelos
+       db.sync() //va agregando nuevos modelos o clumnas a la base de datos, sincroniza en automatico lo que tengamos en nuestros modelos
        console.log(colors.blue.bold('Conexión exitosa'))
    }catch(error){
     console.log(colors.red.bold(error))

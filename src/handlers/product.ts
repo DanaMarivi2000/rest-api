@@ -53,14 +53,13 @@ export const updateProduct=async (req:Request, res:Response)=>{
     const {id}=req.params
     const product=await Product.findByPk(id)
     if(!product){
-        res.status(400).json({error: "Producto no encontrado"})    
+        res.status(404).json({error: "Producto no encontrado"})    
+    }else{
+        await product.update(req.body)
+        await product.save()
+        res.json({data:product})
     }
-      
     //Actualizar producto
-    await product.update(req.body)
-    await product.save()
-
-    res.json({data:product})
 }
 
 export const updateAvailability=async(req:Request, res:Response)=>{
@@ -69,6 +68,7 @@ export const updateAvailability=async(req:Request, res:Response)=>{
     const product=await Product.findByPk(id)
     if(!product){
         res.status(404).send({error:"Producto no encontrado"})
+        return
     }
     product.availability=!product.dataValues.availability
     await product.save()
@@ -81,6 +81,7 @@ export const deleteProduct=async(req:Request, res:Response)=>{ //son asíncronas
 
     if(!product){
         res.status(404).json({error:"El producto no existe"})
+        return 
     }
     await product.destroy()//elimina de la base de datos, espera a que se elimine para mostrar el json
         res.json({data:"Producto eliminado"})
