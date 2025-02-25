@@ -55,7 +55,7 @@ export const updateProduct=async (req:Request, res:Response)=>{
     if(!product){
         res.status(404).json({error: "Producto no encontrado"})    
     }else{
-        await product.update(req.body)
+        await product.update(req.body) //Actualiza lo que le mandes ya que PUT actualiza todo
         await product.save()
         res.json({data:product})
     }

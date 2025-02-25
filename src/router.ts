@@ -4,6 +4,32 @@ import { getProducts, getProductById, createProduct, updateProduct, updateAvaila
 import {handleInputErrors} from './middleware/index'
 const router=Router()
 
+//Sintaxis especial para llenar la ui
+
+/**
+ * @swagger
+ * components:
+ *      schemas:
+ *           Product:
+ *              type: object
+ *              properties:
+ *                   id:
+ *                       type: integer
+ *                       description: The Product ID
+ *                       example: 1
+ *                   name:
+ *                        type: string
+ *                        description: The Product Name
+ *                        example: Monitor Curvo de 40 pulgadas
+ *                   price:
+ *                         type: number
+ *                         description: The Product price
+ *                         example: 300
+ *                   availability:
+ *                         type: boolean
+ *                         description: The Product availability
+ *                         example: true
+ */
 
 router.get("/", getProducts)
 
