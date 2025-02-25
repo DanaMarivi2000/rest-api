@@ -1,8 +1,7 @@
 import swaggerJSDoc from "swagger-jsdoc"; //Permite una sintaxis especial de un formato llamado YAML nos permite crear la documentación 
-
 const options:swaggerJSDoc.Options={
     swaggerDefinition:{
-        openai:'3.0.2',
+        openapi:'3.0.2',
         tags:[
             {
                 name:'Products',
