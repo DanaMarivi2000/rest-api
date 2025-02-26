@@ -3,7 +3,7 @@ import router from './router'
 import db from './config/db'
 import colors from 'colors'
 import swaggerUi  from 'swagger-ui-express' //Permite crear la url para acceder a la documentación
-import swaggerSpec from './config/swagger'
+import swaggerSpec, {swaggerUiOptions} from './config/swagger'
 //isancia de express
 const server=express()
 //leer daos de formularios
@@ -29,6 +29,6 @@ server.get("/api", (req, res)=>{
 
 //DOCS
 
-server.use('/docs', swaggerUi.serve /* cliente de express */, swaggerUi.setup(swaggerSpec))
+server.use('/docs', swaggerUi.serve /* cliente de express */, swaggerUi.setup(swaggerSpec, swaggerUiOptions))
 
 export default server
